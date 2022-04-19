@@ -1,0 +1,12 @@
+setuptools==38.4.0
+torch==0.4.1
+py3nvml==0.1.0rc7
+Flask==0.12.2
+numpy==1.14.0
+pyhocon==0.3.38
+torchvision==0.2.1
+psutil==5.4.3
+dataclasses==0.6
+matplotlib==2.1.2
+scipy==1.0.0
+Pillow==5.2.0

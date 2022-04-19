@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-pod
+spec:
+  selector:
+    matchLabels:
+      app: nginx-pod
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nginx-pod
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+              name: port
+              protocol: TCP
+          volumeMounts:
+            - name: nginx-pvc
+              mountPath: "/usr/share/nginx/html"
+            - name: nginx-cm
+              mountPath: "/etc/nginx/conf.d"
+      volumes:
+        - name: nginx-pvc
+          persistentVolumeClaim: 
+            claimName: nginx-pvc
+        - name: nginx-cm
+          configMap:
+            name: nginx-cm

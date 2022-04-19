@@ -1,0 +1,5 @@
+dataclasses
+pyhocon
+prettytable
+setuptools
+torch>=0.4.0
